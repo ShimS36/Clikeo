@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Formulaire Clikeo</title>
+  </head>
+  <body>
+    <h2><span>Formulaire (Test pour la boite Clikeo)</span></h2>
+      <form id="app" @submit="checkForm"method ="POST" action="reponse.php">
+        <p v-if="errors.length">
+          <b>Veuillez corriger les erreurs:</b>
+          <ul>
+            <li v-for="error in errors">{{ error }}</li>
+          </ul>
+          
+        
+            <label for="civilite">*Civilité</label> : 
+            <br>
+            <label> 
+            <input v-model="choix" type="radio" name="choix" value='Homme'/>
+             Homme
+            </label>
+            
+            <label>
+            <input v-model="choix" type="radio" name="choix" value='Femme'>
+            Femme 
+          </label>
+            
+            <label>
+              <input v-model="choix" type="radio" name="choix" value="Autre">
+              Autre
+            </label><br>
+            <br>
+            <label for="nom">*Nom</label> : <input v-model="nom" type="text" name="nom" id="nom" placeholder="obligatoire"/>
+            <br>
+            <br>
+            <label for="prenom">Prénom</label> : <input v-model="prenom" type="text" name="prenom" placeholder="falcutative"/>
+            <br>
+            <br>
+            <label for="daten">Date de naissance</label> : <input v-model="daten" type="date" name="daten"/>
+            <br>
+            <br>
+            <label for="mail">*Email</label> : <input v-model="mail" type="email" name="mail" id="mail" placeholder="obligatoire"/>
+            <br>
+            <br>
+            <label for="msg">*Message</label> :<br> 
+            <textarea v-model="msg" name="msg" id="msg" cols="45" rows="8" placeholder="obligatoire"></textarea><br><br>
+            <input type="submit" value="Valider">
+
+      </form>
+    <div id="app_2">
+        {{ message }}
+      </div>
+      <div id="app-3">
+        <span v-bind:title="message">
+          Passez votre souris sur moi pendant quelques secondes
+          pour voir mon titre lié dynamiquement !
+        </span>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="dom.js"></script>
+    
+  </body>
+</html>
